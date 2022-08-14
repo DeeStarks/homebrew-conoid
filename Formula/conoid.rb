@@ -9,17 +9,17 @@ class Conoid < Formula
   license "MIT"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/deestarks/conoid/releases/download/v0.0.3/conoid_0.0.3_Darwin_arm64.tar.gz"
-      sha256 "1353e0437451530a5e93e823d47a1a1dc0f30bf70b6fdadedc719ffc0fee05a2"
+    if Hardware::CPU.intel?
+      url "https://github.com/deestarks/conoid/releases/download/v0.0.3/conoid_0.0.3_Darwin_x86_64.tar.gz"
+      sha256 "8dc849c1f18a4a31d055c58659c57f7e08b83228a11f629704e5930a43cb3950"
 
       def install
         bin.install "conoid"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/deestarks/conoid/releases/download/v0.0.3/conoid_0.0.3_Darwin_x86_64.tar.gz"
-      sha256 "2c22c3b2183a893b6a67b8bcc5b1731780be43a96173952afbddfccab332deaf"
+    if Hardware::CPU.arm?
+      url "https://github.com/deestarks/conoid/releases/download/v0.0.3/conoid_0.0.3_Darwin_arm64.tar.gz"
+      sha256 "f79c178b9629002e4189f7644fafea4695728939de6c81d1b205235c57a2f944"
 
       def install
         bin.install "conoid"
@@ -30,7 +30,7 @@ class Conoid < Formula
   on_linux do
     if Hardware::CPU.intel?
       url "https://github.com/deestarks/conoid/releases/download/v0.0.3/conoid_0.0.3_Linux_x86_64.tar.gz"
-      sha256 "36ba52151cf0563c625fd30a361bbe1e31dae6143522a91046ce015af635c0d0"
+      sha256 "313239362fee27e79336b7bae7874a0919b9ce189b868b65029952a3099e7326"
 
       def install
         bin.install "conoid"
@@ -38,7 +38,7 @@ class Conoid < Formula
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/deestarks/conoid/releases/download/v0.0.3/conoid_0.0.3_Linux_arm64.tar.gz"
-      sha256 "c4d81534e0442379ca217cb525c00eeaa3730a83e92d48c6d480d0171ae25fc0"
+      sha256 "408bd6a86a73d4f5db5a3546fc4778edb7547e8cb2303e32b4fcdb3898266093"
 
       def install
         bin.install "conoid"
@@ -55,11 +55,8 @@ class Conoid < Formula
   <dict>
     <key>Label</key>
     <string>#{plist_name}</string>
-    <key>ProgramArguments</key>
-    <array>
-      <string>#{opt_bin}/conoid</string>
-      <string>watch</string>
-    </array>
+    <key>Program</key>
+    <string>#{opt_bin}/conoid</string>
     <key>RunAtLoad</key>
     <true/>
     <key>KeepAlive</key>
