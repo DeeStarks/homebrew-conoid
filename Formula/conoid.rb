@@ -5,21 +5,21 @@
 class Conoid < Formula
   desc "A simple HTTP server that can be used to serve static files. It also provides TCP tunnelling through https://localtunnel.me to bypass a firewall or NAT, enabling local development servers to be exposed to the internet."
   homepage ""
-  version "0.0.2"
+  version "0.0.3"
   license "MIT"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/deestarks/conoid/releases/download/v0.0.2/conoid_0.0.2_Darwin_x86_64.tar.gz"
-      sha256 "936382d805598fd2f78dcfabc927a4c5c7d21e53549eb21a055bd47b1d5f7ae3"
+    if Hardware::CPU.arm?
+      url "https://github.com/deestarks/conoid/releases/download/v0.0.3/conoid_0.0.3_Darwin_arm64.tar.gz"
+      sha256 "1353e0437451530a5e93e823d47a1a1dc0f30bf70b6fdadedc719ffc0fee05a2"
 
       def install
         bin.install "conoid"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/deestarks/conoid/releases/download/v0.0.2/conoid_0.0.2_Darwin_arm64.tar.gz"
-      sha256 "5d04039027950cae68d7a9cec4810838f4e1be8e9b3e26ca35ca40539066ef9d"
+    if Hardware::CPU.intel?
+      url "https://github.com/deestarks/conoid/releases/download/v0.0.3/conoid_0.0.3_Darwin_x86_64.tar.gz"
+      sha256 "2c22c3b2183a893b6a67b8bcc5b1731780be43a96173952afbddfccab332deaf"
 
       def install
         bin.install "conoid"
@@ -29,16 +29,16 @@ class Conoid < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/deestarks/conoid/releases/download/v0.0.2/conoid_0.0.2_Linux_x86_64.tar.gz"
-      sha256 "83c85369e4309375b23a5757a139a8ad56a544ac69640f7093ef934b8e349a44"
+      url "https://github.com/deestarks/conoid/releases/download/v0.0.3/conoid_0.0.3_Linux_x86_64.tar.gz"
+      sha256 "36ba52151cf0563c625fd30a361bbe1e31dae6143522a91046ce015af635c0d0"
 
       def install
         bin.install "conoid"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/deestarks/conoid/releases/download/v0.0.2/conoid_0.0.2_Linux_arm64.tar.gz"
-      sha256 "34723af4c328ea65f16d2688bbb2b1ec1a02925d086d9b70708170c1fec54ca6"
+      url "https://github.com/deestarks/conoid/releases/download/v0.0.3/conoid_0.0.3_Linux_arm64.tar.gz"
+      sha256 "c4d81534e0442379ca217cb525c00eeaa3730a83e92d48c6d480d0171ae25fc0"
 
       def install
         bin.install "conoid"
